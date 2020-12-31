@@ -24,6 +24,32 @@ defmodule ComplexNumber do
       iex> ComplexNumber.is_complex_number("binary")
       false
   """
+  if Version.match?(System.version(), "< 1.11.0") do
+    defmacrop is_struct(term, _) do
+      case __CALLER__.context do
+        nil ->
+          quote do
+            case unquote(term) do
+              %{__struct__: ComplexNumber} -> true
+              _ -> false
+            end
+          end
+
+        :match ->
+          raise ArgumentError,
+                "invalid expression in match, is_struct/2 is not allowed in patterns such as " <>
+                  "function clauses, case clauses or on the left side of the = operator"
+
+        :guard ->
+          quote do
+            is_map(unquote(term)) and
+              :erlang.is_map_key(:__struct__, unquote(term)) and
+              :erlang.map_get(:__struct__, unquote(term)) == ComplexNumber
+          end
+      end
+    end
+  end
+
   defguard is_complex_number(number) when is_number(number) or is_struct(number, ComplexNumber)
 
   @doc """
