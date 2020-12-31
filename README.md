@@ -1,4 +1,4 @@
-[![Hex.pm](https://shields.api-test.nl/hexpm/v/complex_number?color=%23c440ff&style=for-the-badge)](https://hex.pm/packages/tensorex)
+[![Hex.pm](https://shields.api-test.nl/hexpm/v/complex_number?color=%23c440ff&style=for-the-badge)](https://hex.pm/packages/complex_number)
 ![License](https://shields.api-test.nl/hexpm/l/complex_number?color=%2300b000&style=for-the-badge)
 # ComplexNumber
 
