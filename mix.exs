@@ -14,13 +14,13 @@ defmodule ComplexNumber.MixProject do
         else
           []
         end,
-        source_url: "https://github.com/h-ikeda/complex_number",
-        # docs: [logo: "logo.svg"],
-        description: "Complex number operations.",
-        package: [
-          licenses: ["MIT"],
-          links: %{"GitHub" => "https://github.com/h-ikeda/complex_number"}
-        ]
+      source_url: "https://github.com/h-ikeda/complex_number",
+      # docs: [logo: "logo.svg"],
+      description: "Complex number operations.",
+      package: [
+        licenses: ["MIT"],
+        links: %{"GitHub" => "https://github.com/h-ikeda/complex_number"}
+      ]
     ]
   end
 
