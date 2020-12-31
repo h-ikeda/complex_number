@@ -5,7 +5,7 @@ defmodule ComplexNumber.MixProject do
     [
       app: :complex_number,
       version: "0.1.0",
-      elixir: "~> 1.11",
+      elixir: "~> 1.10",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
       test_coverage:
