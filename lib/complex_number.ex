@@ -510,4 +510,59 @@ defmodule ComplexNumber do
         }
     end
   end
+
+  @doc """
+  Returns the cosine of a complex number.
+
+      iex> ComplexNumber.cos(2.1)
+      -0.5048461045998576
+
+      iex> ComplexNumber.cos(ComplexNumber.new(3, -0.5))
+      %ComplexNumber{radius: 1.1187606807234534, theta: 3.075814483757404}
+  """
+  @spec cos(t) :: t
+  def cos(number) when is_number(number), do: :math.cos(number)
+
+  def cos(%ComplexNumber{radius: radius, theta: theta}) do
+    x = radius * :math.cos(theta)
+    y = radius * :math.sin(theta)
+    new(:math.cos(x) * :math.cosh(y), -:math.sin(x) * :math.sinh(y))
+  end
+
+  @doc """
+  Returns the sine of a complex number.
+
+      iex> ComplexNumber.sin(2.1)
+      0.8632093666488737
+
+      iex> ComplexNumber.sin(ComplexNumber.new(3, -0.5))
+      %ComplexNumber{radius: 0.5398658852737769, theta: 1.2715925251688622}
+  """
+  @spec sin(t) :: t
+  def sin(number) when is_number(number), do: :math.sin(number)
+
+  def sin(%ComplexNumber{radius: radius, theta: theta}) do
+    x = radius * :math.cos(theta)
+    y = radius * :math.sin(theta)
+    new(:math.sin(x) * :math.cosh(y), :math.cos(x) * :math.sinh(y))
+  end
+
+  @doc """
+  Returns the tangent of a complex number.
+
+      iex> ComplexNumber.tan(2.1)
+      -1.7098465429045073
+
+      iex> ComplexNumber.tan(ComplexNumber.new(3, -0.5))
+      %ComplexNumber{radius: 0.482557078181072, theta: -1.804221958588542}
+  """
+  @spec tan(t) :: t
+  def tan(number) when is_number(number), do: :math.tan(number)
+
+  def tan(%ComplexNumber{radius: radius, theta: theta}) do
+    x = radius * :math.cos(theta)
+    y = radius * :math.sin(theta)
+    denominator = :math.cos(x * 2) + :math.cosh(y * 2)
+    new(:math.sin(x * 2) / denominator, :math.sinh(y * 2) / denominator)
+  end
 end
