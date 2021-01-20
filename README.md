@@ -11,7 +11,7 @@ The package can be installed by adding `complex_number` to your list of dependen
 ```elixir
 def deps do
   [
-    {:complex_number, "~> 0.1.0"}
+    {:complex_number, "~> 0.2.0"}
   ]
 end
 ```
