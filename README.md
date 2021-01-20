@@ -15,3 +15,5 @@ def deps do
   ]
 end
 ```
+
+See [the documentation](https://hexdocs.pm/complex_number/api-reference.html) for the module usage.
